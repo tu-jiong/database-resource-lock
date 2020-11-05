@@ -1,0 +1,24 @@
+创建表
+MySQL
+CREATE TABLE `lock_table` (
+  `row_key` varchar(128) NOT NULL,
+  `xid` varchar(128) NOT NULL,
+  `table_name` varchar(128) NOT NULL,
+  `pk` varchar(128) NOT NULL,
+  `lock_owner` varchar(128) NOT NULL,
+  `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `utime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`row_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+PgSQL
+CREATE TABLE public.saas_lock (
+	row_key varchar(128) NOT NULL,
+	xid varchar(128) NOT NULL,
+	table_name varchar(128) NOT NULL,
+	pk varchar(128) NOT NULL,
+	lock_owner varchar(128) NOT NULL,
+	ctime timestamp NOT NULL,
+	utime timestamp NOT NULL,
+	CONSTRAINT pk_lock_table PRIMARY KEY (row_key)
+);
